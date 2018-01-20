@@ -1,0 +1,10 @@
+/src
+lib/**/*.map
+.nyc_output
+coverage
+lib/test
+karma.conf.js
+node_modules
+test
+docs
+READMEAPI.md
