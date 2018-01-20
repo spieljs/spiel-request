@@ -2,7 +2,7 @@ import {Headers, RequestOptions, RequestConfig} from './interfaces';
  
 export class HttpRequest {
     private headers: Headers;
-    private request: XMLHttpRequest;
+    request: XMLHttpRequest;
     private domain: string;
     private defaulResponseType: XMLHttpRequestResponseType;
     private credentials: boolean;
@@ -28,57 +28,11 @@ export class HttpRequest {
         this.request.abort();
     }
 
-    addEventListener(event: string, action: (event: any) => any){
-        this.request.addEventListener(event, action);
-    }
-
     setHeaders(headers: Headers) {
         this.buildHeaders(headers);
     }
 
-    open(method: string, url: string, async: boolean) {
-        this.request.open(method, url, async);
-    }
-
-    responseType(type: XMLHttpRequestResponseType) {
-        this.request.responseType = type;
-    }
-
-    onProgress(onProgressHandler: (this: XMLHttpRequest, event: ProgressEvent)=> any): Function {
-        return this.request.onprogress = onProgressHandler;
-    }
-
-    onLoad(onLoadHandler: (event: any) => any ): Function {
-        return this.request.onload = onLoadHandler;
-    }
-
-    onLoadStart(onLoadStartHandle: (this: XMLHttpRequest, event: Event)=> any): Function {
-        return this.request.onloadstart = onLoadStartHandle;
-    }
-
-    onLoadEnd(onLoadEndHandler: (this: XMLHttpRequest, event: ProgressEvent)=> any): Function {
-        return this.request.onloadend = onLoadEndHandler;
-    }
-
-    onReadyStateChange(onReadyStateChangeHandeler: (this: XMLHttpRequest, event: Event) => any): Function {
-        return this.request.onreadystatechange = onReadyStateChangeHandeler;
-    }
-
-    onTimeout(onTimeoutHandler: (this: XMLHttpRequest, event: ProgressEvent) => any): Function {
-        return this.request.ontimeout = onTimeoutHandler;
-    }
-
-    send(body?: Document) {
-        this.request.send(body);
-    }
-
     sendRequest(options: RequestOptions) {
-        return Promise.resolve(this.buildRequest(options))
-            .then(response => response)
-            .catch(error => error);
-    }
-
-    private buildRequest(options: RequestOptions) {
         return new Promise((resolve, reject) => {
 
             const url = (this.domain) 

@@ -35,6 +35,7 @@ function checkOriginAgainstWhitelist(ctx: any) {
 
 app.use(cors({
     origin: checkOriginAgainstWhitelist,
+    credentials: true,
     keepHeadersOnError: true
 }));
 app.use(router.routes());
