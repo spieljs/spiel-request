@@ -1,6 +1,7 @@
 /src
 lib/**/*.map
 .nyc_output
+gulpfile.js
 coverage
 lib/test
 karma.conf.js

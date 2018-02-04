@@ -1,18 +1,24 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as cors from 'kcors'
+import * as KodyParser from 'koa-bodyparser';
 import { users } from './assets';
 
 const app = new Koa();
 const router = new Router();
 
-// const app = express();
-
 router.get('/users', async(ctx, next) => {
-    ctx.body = {}
+    ctx.body = {};
     ctx.body = users;
     next();
-})
+});
+
+router.post('/users', async(ctx, next) => {
+    const user = ctx.request.body;
+    users.push(user);
+    ctx.body = users;
+    next();
+});
 
 router.get('/users/:id', async(ctx, next) => {
     const id = parseInt(ctx.params.id);
@@ -33,6 +39,7 @@ function checkOriginAgainstWhitelist(ctx: any) {
     return requestOrigin;
 }
 
+app.use(KodyParser());
 app.use(cors({
     origin: checkOriginAgainstWhitelist,
     credentials: true,

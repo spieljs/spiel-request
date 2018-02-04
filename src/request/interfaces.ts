@@ -7,7 +7,7 @@ export interface RequestOptions {
     url: string;
     headers?: Headers;
     typeResponse?: XMLHttpRequestResponseType;
-    body?: Document;
+    body?: any;
 }
 
 export interface RequestConfig {

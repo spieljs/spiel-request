@@ -59,8 +59,12 @@ export class HttpRequest {
 
             this.request.responseType = (options.typeResponse) ?
             options.typeResponse : 'json';
-            
-            this.request.send(options.body);
+
+            if(typeof(options.body) === 'object') {
+                this.request.send(JSON.stringify(options.body));
+            } else {
+                this.request.send(options.body);
+            }
         });
     }
 

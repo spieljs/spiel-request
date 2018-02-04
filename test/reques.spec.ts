@@ -41,6 +41,28 @@ describe('Request', () => {
 
             expect(response.name).has.to.be.equal('Narges');
         });
+
+        it('hat to be possible to add user', async() => {
+            let url = 'http://localhost:3000/users';
+            const user = {
+                id: 4,
+                name: 'Lola',
+                permission: 'user'
+            };
+
+            const response: any = await httpRequest.sendRequest({
+                url: url,
+                method: 'post',
+                body: user
+            });
+
+            expect(response).has.to.length(5);
+        });
+
+        it('has to be set the credentials to false', () => {
+            const request = httpRequest.request;
+            expect(request.withCredentials).has.to.be.false;
+        })
     });
 
     describe('setting request before', () => {
@@ -67,5 +89,10 @@ describe('Request', () => {
 
             expect(response).has.to.be.string;
         });
+
+        it('has to be set the credentials to true', () => {
+            const request = httpRequest.request;
+            expect(request.withCredentials).has.to.be.true;
+        })
     });
 });

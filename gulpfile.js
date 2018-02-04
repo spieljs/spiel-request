@@ -9,6 +9,5 @@ gulp.task("typedoc", function() {
             out: "docs/",
             name: "Spiel Request",
             readme: "READMEAPI.md"
-        }))
-    ;
+        }));
 });
