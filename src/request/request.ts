@@ -1,4 +1,5 @@
-import {Headers, RequestOptions, RequestConfig} from './interfaces';
+import {Headers, RequestOptions, RequestConfig, RequestFileOptions} from './interfaces';
+import { json } from 'body-parser';
  
 export class HttpRequest {
     private headers: Headers;
@@ -57,14 +58,50 @@ export class HttpRequest {
             this.buildHeaders(options.headers || this.headers);
             this.request.withCredentials = this.credentials;
 
-            this.request.responseType = (options.typeResponse) ?
-            options.typeResponse : 'json';
+            this.request.responseType = (options.responseType) ?
+            options.responseType : 'json';
 
-            if(typeof(options.body) === 'object') {
+            const requestJson = (options.requestJson !== undefined) 
+                ? options.requestJson : true;
+
+            if(requestJson) {
                 this.request.send(JSON.stringify(options.body));
             } else {
                 this.request.send(options.body);
             }
+        });
+    }
+
+    uploadFile(options: RequestFileOptions) {
+        return new Promise((resolve, reject) => {
+            const url = (this.domain) 
+            ? `${this.domain}${options.url}` : options.url;
+
+            this.request.onload = (event: any) => {
+                if(this.request.readyState === 4 &&
+                        event.target.status >= 200 && event.target.status < 400) {
+                    resolve(event.target.response);
+                } else {
+                    const error = `${event.target.status}. ${event.target.statusText}`;
+                    reject(error); 
+                }
+            }
+
+            this.request.onerror = () => {
+                const error = `Error to send the request to ${url}. ${this.request.statusText}`;
+                reject(error);
+            }
+
+            this.request.open('post', url, true);
+            this.request.withCredentials = this.credentials;
+
+            this.request.responseType = (options.responseType) ?
+            options.responseType : 'text';
+
+            const formData = new FormData();
+            formData.append(options.name, options.file);
+            
+            this.request.send(formData);
         });
     }
 

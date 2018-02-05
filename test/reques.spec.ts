@@ -2,15 +2,16 @@ import { httpRequest, RequestConfig, Headers } from '../src';
 import { expect } from 'chai';
 
 describe('Request', () => {
+    let file: any;
     describe('default request config', () => {
         before(() => {
             httpRequest.setRequest();
         });
         
         it('has to recibe all the users', async () => { 
-            let url = 'http://localhost:3000/users';
+            const url = 'http://localhost:3000/users';
             const response = await httpRequest.sendRequest({
-                url: url,
+                url,
                 method: 'get'
             });
 
@@ -18,11 +19,11 @@ describe('Request', () => {
         });
 
         it('has to handler the error', async() => {
-            let url = 'http://localhost:3000/users/6';
+            const url = 'http://localhost:3000/users/6';
 
             try {
                 const response = await httpRequest.sendRequest({
-                    url: url,
+                    url,
                     method: 'get'
                 });
 
@@ -33,33 +34,76 @@ describe('Request', () => {
         });
 
         it('has to recibe one user', async() => {
-            let url = 'http://localhost:3000/users/3';
+            const url = 'http://localhost:3000/users/3';
             const response: any = await httpRequest.sendRequest({
-                url: url,
+                url,
                 method: 'get'
             });
 
             expect(response.name).has.to.be.equal('Narges');
         });
 
-        it('hat to be possible to add user', async() => {
-            let url = 'http://localhost:3000/users';
+        it('has to add user', async() => {
+            const url = 'http://localhost:3000/users';
             const user = {
-                id: 4,
-                name: 'Lola',
+                id: 5,
+                name: 'Pepe',
                 permission: 'user'
             };
 
             const response: any = await httpRequest.sendRequest({
-                url: url,
+                url,
                 method: 'post',
                 body: user
             });
 
+            const isAdded = response.some((user: any) => user.name === 'Pepe');
+
             expect(response).has.to.length(5);
+            expect(isAdded).has.to.be.true;
         });
 
-        it('has to be set the credentials to false', () => {
+        it('has to delete user', async() => {
+            const url = 'http://localhost:3000/users/5';
+            const response: any = await httpRequest.sendRequest({
+                url,
+                method: 'delete',
+            });
+
+            const isStillExisting = response.some((user: any) => user.name === 'Pepe');
+
+            expect(response).has.to.length(4);
+            expect(isStillExisting).has.to.be.false;
+        });
+
+        it('has to upload file', async() => {
+            const url = 'http://localhost:3000/upload';
+
+            const blob = new Blob(['abc123'], {type: 'text/plain'});
+            
+            file = await httpRequest.uploadFile({
+                url,
+                file: blob,
+                responseType: 'json',
+                name: 'test'
+            });
+
+
+            expect(file.fieldname).has.to.be.equal('test');
+        });
+
+        it('has to delete file', async() => {
+            const url = `http://localhost:3000/upload/${file.filename}`;
+            const response = await httpRequest.sendRequest({
+                url,
+                method: 'delete',
+                responseType: 'text'
+            });
+
+            expect(response).has.to.be.equal('file removed');
+        })
+
+        it('has to set the credentials to false', () => {
             const request = httpRequest.request;
             expect(request.withCredentials).has.to.be.false;
         })
@@ -67,10 +111,10 @@ describe('Request', () => {
 
     describe('setting request before', () => {
         before(() => {
-            let headers: Headers  = {
+            const headers: Headers  = {
                 'Accept': 'application/json, text/*'
             } 
-            let options: RequestConfig = {
+            const options: RequestConfig = {
                 responseType: 'text',
                 headers,
                 credentials: true,
@@ -81,18 +125,18 @@ describe('Request', () => {
         });
 
         it('has to response a string', async () => { 
-            let url = '/users';
+            const url = '/users';
             const response = await httpRequest.sendRequest({
-                url: url,
+                url,
                 method: 'get'
             });
 
             expect(response).has.to.be.string;
         });
 
-        it('has to be set the credentials to true', () => {
+        it('has to set the credentials to true', () => {
             const request = httpRequest.request;
             expect(request.withCredentials).has.to.be.true;
-        })
+        });
     });
 });
