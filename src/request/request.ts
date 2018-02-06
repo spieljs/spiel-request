@@ -1,13 +1,28 @@
 import {Headers, RequestOptions, RequestConfig, RequestFileOptions} from './interfaces';
 import { json } from 'body-parser';
- 
-export class HttpRequest {
-    private headers: Headers;
-    request: XMLHttpRequest;
-    private domain: string;
-    private defaulResponseType: XMLHttpRequestResponseType;
-    private credentials: boolean;
 
+/**
+* HttpRequest class sets the ajax requests.
+* It use XMLHttpRequest
+* @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>
+* @preferred
+*/
+export class HttpRequest {
+    private headers!: Headers;
+    /**
+    * It includes the XMLHttpRequest singleton which is possible
+    * to access all its methods
+    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>
+    */
+    request!: XMLHttpRequest;
+    private domain!: string;
+    private defaulResponseType!: XMLHttpRequestResponseType;
+    private credentials!: boolean;
+
+    /**
+    * It sets the default ajax request
+    * @param options default request optons
+    */
     setRequest(options?: RequestConfig) {
         this.headers = (options && options.headers) ? 
             options.headers : {'Content-Type': 'application/json; charset=utf-8'};
@@ -25,14 +40,25 @@ export class HttpRequest {
         return this;
     }
 
+    /** 
+    * It interrupts a progress request
+    */
     abort() {
         this.request.abort();
     }
 
+    /**
+    * It sets headers 
+    * @param headers 
+    */
     setHeaders(headers: Headers) {
         this.buildHeaders(headers);
     }
-
+    
+    /**
+    * It sends ajax request
+    * @param options specific options for this request
+    */
     sendRequest(options: RequestOptions) {
         return new Promise((resolve, reject) => {
 
@@ -72,6 +98,10 @@ export class HttpRequest {
         });
     }
 
+    /**
+    * It upload file
+    * @param options upload options 
+    */
     uploadFile(options: RequestFileOptions) {
         return new Promise((resolve, reject) => {
             const url = (this.domain) 

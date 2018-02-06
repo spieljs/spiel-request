@@ -1,5 +1,6 @@
 module.exports = function(config) {
     config.set({
+        browsers: ['jsdom', 'Chrome', 'Chromium', 'Firefox', 'Opera'],
         frameworks: ['mocha', 'karma-typescript'],
         files: [
             "src/**/*.ts",
@@ -19,7 +20,7 @@ module.exports = function(config) {
         autoWatch: true,
         karmaTypescriptConfig: {
             compilerOptions: {
-                "target": "es6",
+                "target": "es5",
                 "module": "commonjs",
                 "strict": true,
                 "emitDecoratorMetadata": true,
@@ -38,6 +39,8 @@ module.exports = function(config) {
 
         mochaReporter: {
             output: 'full'
-        }
+        },
+
+        singleRun: true
     });
 }
