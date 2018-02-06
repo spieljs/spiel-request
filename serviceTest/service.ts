@@ -36,6 +36,20 @@ router.post('/upload', upload.single('test'), async(ctx, next) => {
     next();
 });
 
+router.put('/users/:id', async(ctx, next) => {
+    const id = parseInt(ctx.params.id);
+    const permission = ctx.request.body;
+
+    ctx.body = users.map(user => {
+        const value = user
+        if(value.id === id) value.permission = permission;
+        return value;
+    });
+    
+    if(!ctx.body) ctx.throw(404, 'User not found');
+    next();
+})
+
 router.delete('/users/:id', async(ctx, next) => {
     const id = parseInt(ctx.params.id);
     const index = users.findIndex((user: any) => user.id === id);
@@ -71,7 +85,7 @@ router.delete('/upload/:file', async(ctx, next) => {
     } catch(error) {
         ctx.throw(error.code, error.message);
     }
-})
+});
 
 var whitelist: Array<string> = [
     'http://localhost:9876',

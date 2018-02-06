@@ -63,6 +63,23 @@ describe('Request', () => {
             expect(isAdded).has.to.be.true;
         });
 
+        it('has to update user', async() => {
+            const url = 'http://localhost:3000/users/5';
+            const data = {
+                permission: 'admin'
+            }
+
+            const response: any = await httpRequest.sendRequest({
+                url,
+                method: 'put',
+                body: data
+            });
+
+            const isUpdate = response.some((user:any) => user.permission === 'admin');
+
+            expect(isUpdate).has.to.be.true;
+        });
+
         it('has to delete user', async() => {
             const url = 'http://localhost:3000/users/5';
             const response: any = await httpRequest.sendRequest({
