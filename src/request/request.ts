@@ -62,7 +62,7 @@ export class HttpRequest {
     sendRequest(options: RequestOptions) {
         return new Promise((resolve, reject) => {
 
-            const url = (this.domain) 
+            const url = (this.domain && !this.hasDomain(options.url)) 
             ? `${this.domain}${options.url}` : options.url;
 
             this.request.onload = (event: any) => {
@@ -100,11 +100,12 @@ export class HttpRequest {
 
     /**
     * It upload file
-    * @param options upload options 
+    * @param options upload options
+    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData#Browser_compatibility" target="_blank">Browser compatibility</a>
     */
     uploadFile(options: RequestFileOptions) {
         return new Promise((resolve, reject) => {
-            const url = (this.domain) 
+            const url = (this.domain && !this.hasDomain(options.url)) 
             ? `${this.domain}${options.url}` : options.url;
 
             this.request.onload = (event: any) => {
@@ -139,6 +140,10 @@ export class HttpRequest {
         Object.keys(headers).forEach(key => {
             this.request.setRequestHeader(key, this.headers[key]);
         });
+    }
+
+    private hasDomain(url: string): Array<string> | null {
+        return url.match(/http:\/\/|https:\/\//g)
     }
 }
 

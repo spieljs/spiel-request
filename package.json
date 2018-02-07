@@ -27,8 +27,6 @@
     },
     "homepage": "https://github.com/spiel-framework/spiel-request#readme",
     "dependencies": {
-        "@types/es6-shim": "^0.31.35",
-        "es6-shim": "^0.35.3",
         "injection-js": "^2.2.1"
     },
     "devDependencies": {

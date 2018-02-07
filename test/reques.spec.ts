@@ -151,6 +151,17 @@ describe('Request', () => {
             expect(response).has.to.be.string;
         });
 
+        it('has to ignore the default domain', async () => {
+            const url = 'http://localhost:3000/users';
+
+            const response = await httpRequest.sendRequest({
+                url,
+                method: 'get'
+            });
+
+            expect(response).has.to.be.string;
+        });
+
         it('has to set the credentials to true', () => {
             const request = httpRequest.request;
             expect(request.withCredentials).has.to.be.true;

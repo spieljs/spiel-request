@@ -1,6 +1,6 @@
 module.exports = function(config) {
     config.set({
-        browsers: ['jsdom', 'Chrome', 'Chromium', 'Firefox', 'Opera'],
+        browsers: ['jsdom', 'Chrome', 'Firefox', 'Opera'],
         frameworks: ['mocha', 'karma-typescript'],
         files: [
             "src/**/*.ts",
@@ -21,6 +21,10 @@ module.exports = function(config) {
         karmaTypescriptConfig: {
             compilerOptions: {
                 "target": "es5",
+                "lib": [
+                    "es6",
+                    "dom"
+                ],
                 "module": "commonjs",
                 "strict": true,
                 "emitDecoratorMetadata": true,
