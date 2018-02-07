@@ -3,7 +3,7 @@ import { json } from 'body-parser';
 
 /**
 * HttpRequest class sets the ajax requests.
-* It use XMLHttpRequest
+* It uses XMLHttpRequest
 * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>
 * @preferred
 */
@@ -11,8 +11,8 @@ export class HttpRequest {
     private headers!: Headers;
     /**
     * It includes the XMLHttpRequest singleton which is possible
-    * to access all its methods
-    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>
+    * to access whole its methods
+    * @see <a href="https://github.com/spiel-framework/spiel-request#use-the-xmlhttprequest-methods" target="_blank">Use the XmlHttpRequest methods</a>
     */
     request!: XMLHttpRequest;
     private domain!: string;
@@ -21,7 +21,7 @@ export class HttpRequest {
 
     /**
     * It sets the default ajax request
-    * @param options default request optons
+    * @param options default request options
     */
     setRequest(options?: RequestConfig) {
         this.headers = (options && options.headers) ? 
@@ -99,7 +99,7 @@ export class HttpRequest {
     }
 
     /**
-    * It upload file
+    * It uploads file
     * @param options upload options
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData#Browser_compatibility" target="_blank">Browser compatibility</a>
     */

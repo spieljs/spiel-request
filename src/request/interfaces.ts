@@ -2,6 +2,9 @@ export type Keys = string;
 
 export type Headers = {[key in Keys]: string};
 
+/** 
+* @see <a href='https://github.com/spiel-framework/spiel-request#set-the-request-options-by-default' target="_blank">Set the request options by default</a> 
+*/
 export interface RequestConfig {
     /**It set the headers request by default
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers" target="_blank">Headers</a>
@@ -9,7 +12,7 @@ export interface RequestConfig {
     */
     headers?: Headers;
     /** 
-    * It set to use or not credentials in a cross-site by default
+    * It sets to use or not credentials in a cross-site by default
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials" target="_blank">Credentials</a>
     * @default false 
     */
@@ -26,9 +29,12 @@ export interface RequestConfig {
     responseType?: XMLHttpRequestResponseType;
 }
 
+/** 
+* @see <a href='https://github.com/spiel-framework/spiel-request#send-your-requests' target="_blank">Send your requests</a> 
+*/
 export interface RequestOptions {
     /** It sets the http request method
-    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" target="_blank">Response Type</a>  
+    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" target="_blank">Methods</a>  
     */
     method: string;
     /** 
@@ -37,7 +43,7 @@ export interface RequestOptions {
     */
     url: string;
     /** 
-    * It set te headers for this request
+    * It sets te headers for this request
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers" target="_blank">Headers</a> 
     */
     headers?: Headers;
@@ -58,6 +64,9 @@ export interface RequestOptions {
     body?: any;
 }
 
+/** 
+* @see <a href='https://github.com/spiel-framework/spiel-request#upload-your-files' target="_blank">Upload your files</a> 
+*/
 export interface RequestFileOptions {
     /** 
     * Request url
