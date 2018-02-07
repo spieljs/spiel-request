@@ -64,4 +64,4 @@ Open two terminals, in the first execute `npm run service` and the another `npm 
 
 ### License
 
-Spiel Request is MIT licensed. See [license](LICENSE.md)
+Spiel Request is MIT licensed. See [license](LICENSE)
