@@ -3,7 +3,7 @@ export type Keys = string;
 export type Headers = {[key in Keys]: string};
 
 /** 
-* @see <a href='https://github.com/spiel-framework/spiel-request#set-the-request-options-by-default' target="_blank">Set the request options by default</a> 
+* @see <a href='https://github.com/spieljs/spiel-request#set-the-request-options-by-default' target="_blank">Set the request options by default</a> 
 */
 export interface RequestConfig {
     /**It set the headers request by default
@@ -30,7 +30,7 @@ export interface RequestConfig {
 }
 
 /** 
-* @see <a href='https://github.com/spiel-framework/spiel-request#send-your-requests' target="_blank">Send your requests</a> 
+* @see <a href='https://github.com/spieljs/spiel-request#send-your-requests' target="_blank">Send your requests</a> 
 */
 export interface RequestOptions {
     /** It sets the http request method
@@ -65,7 +65,7 @@ export interface RequestOptions {
 }
 
 /** 
-* @see <a href='https://github.com/spiel-framework/spiel-request#upload-your-files' target="_blank">Upload your files</a> 
+* @see <a href='https://github.com/spieljs/spiel-request#upload-your-files' target="_blank">Upload your files</a> 
 */
 export interface RequestFileOptions {
     /** 

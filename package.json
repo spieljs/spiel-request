@@ -1,7 +1,7 @@
 {
     "name": "spiel-request",
-    "version": "0.1.0",
-    "description": "Library to make request with XmlHttpRequest",
+    "version": "0.1.1",
+    "description": "Module to send request based in XmlHttpRequest",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
     "keywords": [
@@ -18,14 +18,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/spiel-framework/spiel-request.git"
+        "url": "git+https://github.com/spieljs/spiel-request.git"
     },
     "author": "Francisco Jesus Navarro Cortes",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/spiel-framework/spiel-request/issues"
+        "url": "https://github.com/spieljs/spiel-request/issues"
     },
-    "homepage": "https://github.com/spiel-framework/spiel-request#readme",
+    "homepage": "https://github.com/spieljs/spiel-request#readme",
     "dependencies": {},
     "devDependencies": {
         "@koa/cors": "^2.2.1",

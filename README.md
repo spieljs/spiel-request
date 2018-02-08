@@ -4,7 +4,7 @@ Spiel request is a module to send ajax request. It use [XmlHttpRequest](https://
 
 ## Api documentation
 
-* [Spiel request Api](https://spiel-framework.github.io/spiel-request/)
+* [Spiel request Api](https://spieljs.github.io/spiel-request/)
 
 ## How use it
 

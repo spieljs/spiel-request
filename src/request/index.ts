@@ -1,2 +1,2 @@
 export { httpRequest } from './request';
-export { Headers, RequestOptions, RequestConfig } from './interfaces';
+export { Headers, RequestOptions, RequestConfig, RequestFileOptions } from './interfaces';

@@ -12,7 +12,7 @@ export class HttpRequest {
     /**
     * It includes the XMLHttpRequest singleton which is possible
     * to access whole its methods
-    * @see <a href="https://github.com/spiel-framework/spiel-request#use-the-xmlhttprequest-methods" target="_blank">Use the XmlHttpRequest methods</a>
+    * @see <a href="https://github.com/spieljs/spiel-request#use-the-xmlhttprequest-methods" target="_blank">Use the XmlHttpRequest methods</a>
     */
     request!: XMLHttpRequest;
     private domain!: string;
