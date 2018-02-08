@@ -13,7 +13,7 @@
     "scripts": {
         "test": "./node_modules/.bin/karma start",
         "build": "./node_modules/typescript/bin/tsc",
-        "service": "nodemon --watch 'serviceTest/**/**' -e ts --exec 'ts-node' ./serviceTest/service.ts",
+        "server": "nodemon --watch 'serviceTest/**/**' -e ts --exec 'ts-node' ./serviceTest/service.ts",
         "docs": "gulp typedoc"
     },
     "repository": {
