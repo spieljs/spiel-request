@@ -59,7 +59,7 @@ export class HttpRequest {
     * It sends ajax request
     * @param options specific options for this request
     */
-    sendRequest(options: RequestOptions) {
+    sendRequest(options: RequestOptions): Promise<any> {
         return new Promise((resolve, reject) => {
 
             const url = (this.domain && !this.hasDomain(options.url)) 
