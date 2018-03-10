@@ -25,7 +25,7 @@ export class HttpRequest {
     */
     setRequest(options?: RequestConfig) {
         this.headers = (options && options.headers) ? 
-            options.headers : {'Content-Type': 'application/json; charset=utf-8'};
+            options.headers : {'Content-Type': 'application/json'};
 
         if (options && options.domain) this.domain = options.domain;
 
