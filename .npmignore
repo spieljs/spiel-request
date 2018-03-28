@@ -1,4 +1,4 @@
-/src
+src
 .travis.yml
 .vscode
 .nyc_output
@@ -11,6 +11,7 @@ test
 docs
 READMEAPI.md
 gulpfile.js
+serviceTest
 TESTS-Firefox_59.0.0_(Linux_0.0.0).xml
 tsconfig.json
 tslint.json

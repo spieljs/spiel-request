@@ -70,7 +70,9 @@ export class HttpRequest {
                         event.target.status >= 200 && event.target.status < 400) {
                     resolve(event.target.response);
                 } else {
-                    const error = `${event.target.status}. ${event.target.statusText}`;
+                    const error = (event.target.response) 
+                        ? event.target.response
+                        : `${event.target.status}. ${event.target.statusText}`;
                     reject(error); 
                 }
             }
@@ -113,7 +115,9 @@ export class HttpRequest {
                         event.target.status >= 200 && event.target.status < 400) {
                     resolve(event.target.response);
                 } else {
-                    const error = `${event.target.status}. ${event.target.statusText}`;
+                    const error = (event.target.response) 
+                        ? event.target.response
+                        : `${event.target.status}. ${event.target.statusText}`;
                     reject(error); 
                 }
             }
