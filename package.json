@@ -1,6 +1,6 @@
 {
     "name": "spiel-request",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Module to send request based in XmlHttpRequest",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
@@ -61,7 +61,7 @@
         "ts-loader": "^3.4.0",
         "ts-node": "^3.3.0",
         "typedoc": "^0.10.0",
-        "typescript": "^2.7.1",
+        "typescript": "^3.1.6",
         "webpack": "^3.3.0"
     }
 }

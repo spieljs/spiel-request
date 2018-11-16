@@ -1,6 +1,6 @@
 module.exports = function(config) {
     config.set({
-        browsers: ['jsdom', 'Chrome', 'Firefox', 'Opera'],
+        browsers: ['jsdom', 'Chrome', 'Firefox'],
         frameworks: ['mocha', 'karma-typescript'],
         files: [
             "src/**/*.ts",
