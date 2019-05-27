@@ -1,2 +1,2 @@
 export { httpRequest, HttpRequest } from './request';
-export { Headers, RequestOptions, RequestConfig, RequestFileOptions } from './interfaces';
+export { Headers, IRequestOptions, IRequestConfig, IRequestFileOptions } from './interfaces';

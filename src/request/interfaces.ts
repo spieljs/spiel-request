@@ -5,8 +5,9 @@ export type Headers = {[key in Keys]: string};
 /** 
 * @see <a href='https://github.com/spieljs/spiel-request#set-the-request-options-by-default' target="_blank">Set the request options by default</a> 
 */
-export interface RequestConfig {
-    /**It set the headers request by default
+export interface IRequestConfig {
+    /**
+    * It set the headers request by default
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers" target="_blank">Headers</a>
     * @default 'Content-Type': 'application/json; charset=utf-8'
     */
@@ -27,12 +28,20 @@ export interface RequestConfig {
     * @default json 
     */
     responseType?: XMLHttpRequestResponseType;
+    /**
+     * Set the auth type 
+     */
+    authType?: "custom" | "base64";
+    /**
+     * Set auth when auth isn't setted in custom 
+     */
+    auth?: IAuth;
 }
 
 /** 
 * @see <a href='https://github.com/spieljs/spiel-request#send-your-requests' target="_blank">Send your requests</a> 
 */
-export interface RequestOptions {
+export interface IRequestOptions {
     /** It sets the http request method
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" target="_blank">Methods</a>  
     */
@@ -67,7 +76,7 @@ export interface RequestOptions {
 /** 
 * @see <a href='https://github.com/spieljs/spiel-request#upload-your-files' target="_blank">Upload your files</a> 
 */
-export interface RequestFileOptions {
+export interface IRequestFileOptions {
     /** 
     * Request url
     * @example options = { method: "get", url:"/user"} or options = { method: "get", url:"http://example.com/user"}
@@ -86,4 +95,19 @@ export interface RequestFileOptions {
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseType" target="_blank">Response Type</a>
     */
     responseType?: XMLHttpRequestResponseType;
+}
+
+/**
+ * Set auth
+ * @see <a href='https://github.com/spieljs/spiel-request#set-the-request-options-by-default' target="_blank">Set the request options by default</a>
+ */
+export interface IAuth {
+    /**
+     * Set username
+     */
+    username: string;
+    /**
+     * Set password
+     */
+    password: string;
 }

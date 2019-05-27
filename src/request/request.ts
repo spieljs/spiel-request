@@ -1,5 +1,5 @@
-import {Headers, RequestOptions, RequestConfig, RequestFileOptions} from './interfaces';
-import { json } from 'body-parser';
+import {Headers, IRequestOptions, IRequestConfig, IRequestFileOptions} from "./interfaces";
+import {setBase64} from "./auth";
 
 /**
 * HttpRequest class sets the ajax requests.
@@ -23,11 +23,19 @@ export class HttpRequest {
     * It sets the default ajax request
     * @param options default request options
     */
-    setRequest(options?: RequestConfig) {
+    setRequest(options?: IRequestConfig) {
         this.headers = (options && options.headers) ? 
             options.headers : {'Content-Type': 'application/json'};
 
         if (options && options.domain) this.domain = options.domain;
+
+        if (options && options.auth && options.authType === "base64") {
+            try {
+                this.headers["Authorization"] = `Basic ${setBase64(options.auth)}`;
+            } catch {
+                throw new Error("The username and password is needed when authType is setted in base64");
+            }
+        }
 
         this.defaulResponseType = (options && options.responseType) ? 
             options.responseType : 'json';
@@ -59,7 +67,7 @@ export class HttpRequest {
     * It sends ajax request
     * @param options specific options for this request
     */
-    sendRequest(options: RequestOptions): Promise<any> {
+    sendRequest(options: IRequestOptions): Promise<any> {
         return new Promise((resolve, reject) => {
 
             const url = (this.domain && !this.hasDomain(options.url)) 
@@ -105,7 +113,7 @@ export class HttpRequest {
     * @param options upload options
     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData#Browser_compatibility" target="_blank">Browser compatibility</a>
     */
-    uploadFile(options: RequestFileOptions) {
+    uploadFile(options: IRequestFileOptions) {
         return new Promise((resolve, reject) => {
             const url = (this.domain && !this.hasDomain(options.url)) 
             ? `${this.domain}${options.url}` : options.url;

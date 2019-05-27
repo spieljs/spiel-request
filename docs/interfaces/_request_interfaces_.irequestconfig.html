@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RequestFileOptions | Spiel Request</title>
+	<title>IRequestConfig | Spiel Request</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_request_interfaces_.html">&quot;request/interfaces&quot;</a>
 				</li>
 				<li>
-					<a href="_request_interfaces_.requestfileoptions.html">RequestFileOptions</a>
+					<a href="_request_interfaces_.irequestconfig.html">IRequestConfig</a>
 				</li>
 			</ul>
-			<h1>Interface RequestFileOptions</h1>
+			<h1>Interface IRequestConfig</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<div class="tsd-comment tsd-typography">
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
-						<dd><p><a href='https://github.com/spieljs/spiel-request#upload-your-files' target="_blank">Upload your files</a></p>
+						<dd><p><a href='https://github.com/spieljs/spiel-request#set-the-request-options-by-default' target="_blank">Set the request options by default</a></p>
 						</dd>
 					</dl>
 				</div>
@@ -82,7 +82,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RequestFileOptions</span>
+						<span class="target">IRequestConfig</span>
 					</li>
 				</ul>
 			</section>
@@ -93,10 +93,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.requestfileoptions.html#file" class="tsd-kind-icon">file</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.requestfileoptions.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.requestfileoptions.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.requestfileoptions.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.irequestconfig.html#auth" class="tsd-kind-icon">auth</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.irequestconfig.html#authtype" class="tsd-kind-icon">auth<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.irequestconfig.html#credentials" class="tsd-kind-icon">credentials</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.irequestconfig.html#domain" class="tsd-kind-icon">domain</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.irequestconfig.html#headers" class="tsd-kind-icon">headers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_request_interfaces_.irequestconfig.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -105,33 +107,94 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="file" class="tsd-anchor"></a>
-					<h3>file</h3>
-					<div class="tsd-signature tsd-kind-icon">file<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<a name="auth" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> auth</h3>
+					<div class="tsd-signature tsd-kind-icon">auth<span class="tsd-signature-symbol">:</span> <a href="_request_interfaces_.iauth.html" class="tsd-signature-type">IAuth</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spiel-framework/spiel-request/blob/ea85eb2/src/request/interfaces.ts#L83">request/interfaces.ts:83</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-request/blob/7c31a77/src/request/interfaces.ts#L38">request/interfaces.ts:38</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>File to upload</p>
+							<p>Set auth when auth isn&#39;t setted in custom</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="authtype" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> auth<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">auth<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"custom"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"base64"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spiel-framework/spiel-request/blob/ea85eb2/src/request/interfaces.ts#L79">request/interfaces.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-request/blob/7c31a77/src/request/interfaces.ts#L34">request/interfaces.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Alias name of the file to upload</p>
+							<p>Set the auth type</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="credentials" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> credentials</h3>
+					<div class="tsd-signature tsd-kind-icon">credentials<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-request/blob/7c31a77/src/request/interfaces.ts#L20">request/interfaces.ts:20</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>It sets to use or not credentials in a cross-site by default</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials" target="_blank">Credentials</a></p>
+							</dd>
+							<dt>default</dt>
+							<dd><p>false</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="domain" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> domain</h3>
+					<div class="tsd-signature tsd-kind-icon">domain<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-request/blob/7c31a77/src/request/interfaces.ts#L24">request/interfaces.ts:24</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>It adds the domain to all the requests</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="headers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> headers</h3>
+					<div class="tsd-signature tsd-kind-icon">headers<span class="tsd-signature-symbol">:</span> <a href="../modules/_request_interfaces_.html#headers" class="tsd-signature-type">Headers</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-request/blob/7c31a77/src/request/interfaces.ts#L14">request/interfaces.ts:14</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>It set the headers request by default</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Headers" target="_blank">Headers</a></p>
+							</dd>
+							<dt>default</dt>
+							<dd><p>&#39;Content-Type&#39;: &#39;application/json; charset=utf-8&#39;</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -140,36 +203,19 @@
 					<div class="tsd-signature tsd-kind-icon">response<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">XMLHttpRequestResponseType</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/spiel-framework/spiel-request/blob/ea85eb2/src/request/interfaces.ts#L88">request/interfaces.ts:88</a></li>
+							<li>Defined in <a href="https://github.com/spieljs/spiel-request/blob/7c31a77/src/request/interfaces.ts#L30">request/interfaces.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type of response expected for this request</p>
+							<p>Type of response expected by default</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>see</dt>
 							<dd><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseType" target="_blank">Response Type</a></p>
 							</dd>
-						</dl>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="url" class="tsd-anchor"></a>
-					<h3>url</h3>
-					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/spiel-framework/spiel-request/blob/ea85eb2/src/request/interfaces.ts#L75">request/interfaces.ts:75</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Request url</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>example</dt>
-							<dd><p>options = { method: &quot;get&quot;, url:&quot;/user&quot;} or options = { method: &quot;get&quot;, url:&quot;<a href="http://example.com/user&quot;}">http://example.com/user&quot;}</a></p>
+							<dt>default</dt>
+							<dd><p>json</p>
 							</dd>
 						</dl>
 					</div>
@@ -186,6 +232,9 @@
 						<a href="../modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_request_auth_.html">"request/auth"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_request_index_.html">"request/index"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
@@ -199,31 +248,40 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_request_interfaces_.requestconfig.html" class="tsd-kind-icon">Request<wbr>Config</a>
+						<a href="_request_interfaces_.iauth.html" class="tsd-kind-icon">IAuth</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_request_interfaces_.requestfileoptions.html" class="tsd-kind-icon">Request<wbr>File<wbr>Options</a>
+						<a href="_request_interfaces_.irequestconfig.html" class="tsd-kind-icon">IRequest<wbr>Config</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_request_interfaces_.requestfileoptions.html#file" class="tsd-kind-icon">file</a>
+								<a href="_request_interfaces_.irequestconfig.html#auth" class="tsd-kind-icon">auth</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_request_interfaces_.requestfileoptions.html#name" class="tsd-kind-icon">name</a>
+								<a href="_request_interfaces_.irequestconfig.html#authtype" class="tsd-kind-icon">auth<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_request_interfaces_.requestfileoptions.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a>
+								<a href="_request_interfaces_.irequestconfig.html#credentials" class="tsd-kind-icon">credentials</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_request_interfaces_.requestfileoptions.html#url" class="tsd-kind-icon">url</a>
+								<a href="_request_interfaces_.irequestconfig.html#domain" class="tsd-kind-icon">domain</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_request_interfaces_.irequestconfig.html#headers" class="tsd-kind-icon">headers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_request_interfaces_.irequestconfig.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_request_interfaces_.requestoptions.html" class="tsd-kind-icon">Request<wbr>Options</a>
+						<a href="_request_interfaces_.irequestfileoptions.html" class="tsd-kind-icon">IRequest<wbr>File<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_request_interfaces_.irequestoptions.html" class="tsd-kind-icon">IRequest<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_request_interfaces_.html#headers" class="tsd-kind-icon">Headers</a>

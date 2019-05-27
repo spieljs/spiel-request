@@ -1,1 +1,1 @@
-export { httpRequest, HttpRequest, Headers, RequestOptions, RequestConfig } from './request';
+export { httpRequest, HttpRequest, Headers, IRequestOptions, IRequestConfig } from './request';

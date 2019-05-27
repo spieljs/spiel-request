@@ -1,4 +1,4 @@
-import { httpRequest, RequestConfig, Headers } from '../src';
+import { httpRequest, IRequestConfig, Headers } from '../src';
 import { expect } from 'chai';
 
 describe('Request', () => {
@@ -131,7 +131,7 @@ describe('Request', () => {
             const headers: Headers  = {
                 'Accept': 'application/json, text/*'
             } 
-            const options: RequestConfig = {
+            const options: IRequestConfig = {
                 responseType: 'text',
                 headers,
                 credentials: true,
@@ -165,6 +165,26 @@ describe('Request', () => {
         it('has to set the credentials to true', () => {
             const request = httpRequest.request;
             expect(request.withCredentials).has.to.be.true;
+        });
+
+        it('has to set auth in base64', async() => {
+            const url = 'http://localhost:3000/auth';
+            const options: IRequestConfig = {
+                authType: "base64",
+                auth: {
+                    username: "test",
+                    password: "123456",
+                }
+            };
+
+            httpRequest.setRequest(options);
+
+            const response = await httpRequest.sendRequest({
+                url,
+                method: 'get'
+            });
+
+            expect(response.authorization).to.be.include('Basic');
         });
     });
 });

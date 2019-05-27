@@ -30,6 +30,11 @@ router.get('/users/:id', async(ctx, next) => {
     next();
 });
 
+router.get('/auth', async(ctx, next) => {
+    ctx.body = ctx.request.headers;
+    next();
+})
+
 router.post('/upload', upload.single('test'), async(ctx, next) => {
     const req = <multer.MulterIncomingMessage>ctx.req;
     ctx.body = req.file;

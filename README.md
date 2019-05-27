@@ -20,6 +20,11 @@ const options: RequestConfig = {
     responseType: 'text',
     headers,
     credentials: true,
+    authType: 'base64',
+    auth: {
+        username: 'test'
+        password: '123456'
+    }
     domain: 'http://localhost:3000'
 }
 ```
