@@ -72,11 +72,17 @@
 
 <span class="hljs-keyword">const</span> headers: Headers  = {
     <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json, text/*'</span>
-} 
+}
+
 <span class="hljs-keyword">const</span> options: RequestConfig = {
     responseType: <span class="hljs-string">'text'</span>,
     headers,
     credentials: <span class="hljs-literal">true</span>,
+    authType: <span class="hljs-string">'base64'</span>,
+    auth: {
+        username: <span class="hljs-string">'test'</span>
+        password: <span class="hljs-string">'123456'</span>
+    }
     domain: <span class="hljs-string">'http://localhost:3000'</span>
 }
 </code></pre>
